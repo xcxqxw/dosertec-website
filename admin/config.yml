@@ -5,7 +5,8 @@ backend:
   site_domain: xcxqxw.github.io
   base_url: https://xcxqxw.github.io/dosertec-website
   auth_type: oauth
-  app_id: YOUR_GITHUB_CLIENT_ID
+  app_id: Ov23liNehEzOp38BD18a
+  app_secret: 15cee7ed3ca89aadf2fc0859a977e1d4b59bf858
   redirect_uri: https://xcxqxw.github.io/dosertec-website/admin/
 
 local_backend:
