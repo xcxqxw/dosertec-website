@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新闻中心 - 德烁科技</title>
+    <meta name="description" content="德烁科技最新新闻、行业资讯、技术动态" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        var checkCount = 0;
+        var checkInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            checkCount++;
+            if (checkCount > 20) {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="logo-glow-bg">
+                    <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback">德烁科技</span>
+                </div>
+            </a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" data-key="home">首页</a></li>
+                <li><a href="products.html" data-key="products">产品中心</a></li>
+                <li><a href="solutions.html" data-key="solutions">解决方案</a></li>
+                <li><a href="about.html" data-key="about">关于我们</a></li>
+                <li><a href="news.html" class="active" data-key="news">新闻中心</a></li>
+                <li><a href="contact.html" data-key="contact">联系我们</a></li>
+                <li class="navbar-lang">
+                    <button class="lang-btn lang-active" data-lang="cn">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>新闻中心</h1>
+            <p>了解德烁科技最新动态、行业资讯和技术分享</p>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <div class="news-page">
+                <div class="news-sidebar">
+                    <h3>新闻分类</h3>
+                    <ul class="news-categories">
+                        <li><a href="#" class="active">全部新闻</a></li>
+                        <li><a href="#">公司新闻</a></li>
+                        <li><a href="#">行业资讯</a></li>
+                        <li><a href="#">技术动态</a></li>
+                        <li><a href="#">展会信息</a></li>
+                    </ul>
+                </div>
+
+                <div class="news-content">
+                    <div class="news-list">
+                        <article class="news-item reveal">
+                            <div class="news-image">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Modern%20technology%20conference%20presentation%20professional%20business%20event&image_size=landscape_4_3" alt="新闻图片" />
+                            </div>
+                            <div class="news-info">
+                                <span class="news-tag">公司新闻</span>
+                                <h3>德烁科技参加2024上海国际工业自动化展会</h3>
+                                <p>德烁科技携最新流体控制产品参加上海国际工业自动化展会，展示了微量螺杆泵、精密齿轮泵等核心产品，吸引了众多国内外客户的关注...</p>
+                                <div class="news-meta">
+                                    <span class="news-date">2024-12-15</span>
+                                    <span class="news-read">阅读更多 →</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-item reveal reveal-delay-1">
+                            <div class="news-image">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=EV%20battery%20manufacturing%20line%20precision%20dispensing%20equipment%20green%20energy&image_size=landscape_4_3" alt="新闻图片" />
+                            </div>
+                            <div class="news-info">
+                                <span class="news-tag">行业资讯</span>
+                                <h3>新能源行业流体控制技术发展趋势</h3>
+                                <p>随着新能源行业的快速发展，精密流体控制技术在锂电池制造、光伏组件生产等领域的应用越来越广泛...</p>
+                                <div class="news-meta">
+                                    <span class="news-date">2024-12-10</span>
+                                    <span class="news-read">阅读更多 →</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-item reveal reveal-delay-2">
+                            <div class="news-image">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lab%20testing%20precision%20pump%20equipment%20engineering%20research&image_size=landscape_4_3" alt="新闻图片" />
+                            </div>
+                            <div class="news-info">
+                                <span class="news-tag">技术动态</span>
+                                <h3>新一代微量螺杆泵技术突破，精度提升至±0.5%</h3>
+                                <p>德烁科技研发团队经过多年技术攻关，成功将微量螺杆泵的计量精度从±1%提升至±0.5%，达到国际领先水平...</p>
+                                <div class="news-meta">
+                                    <span class="news-date">2024-12-05</span>
+                                    <span class="news-read">阅读更多 →</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-item reveal reveal-delay-3">
+                            <div class="news-image">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Award%20ceremony%20business%20achievement%20company%20recognition&image_size=landscape_4_3" alt="新闻图片" />
+                            </div>
+                            <div class="news-info">
+                                <span class="news-tag">公司新闻</span>
+                                <h3>德烁科技荣获"2024年度流体控制行业领军企业"称号</h3>
+                                <p>在2024年度流体控制行业评选中，德烁科技凭借卓越的技术实力和市场表现，荣获"行业领军企业"称号...</p>
+                                <div class="news-meta">
+                                    <span class="news-date">2024-11-28</span>
+                                    <span class="news-read">阅读更多 →</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-item reveal reveal-delay-4">
+                            <div class="news-image">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Automotive%20manufacturing%20robot%20dispensing%20car%20parts%20assembly&image_size=landscape_4_3" alt="新闻图片" />
+                            </div>
+                            <div class="news-info">
+                                <span class="news-tag">行业资讯</span>
+                                <h3>汽车行业智能制造对流体控制的新需求</h3>
+                                <p>随着汽车行业向智能化、电动化方向发展，对流体控制设备的精度、稳定性和智能化程度提出了更高要求...</p>
+                                <div class="news-meta">
+                                    <span class="news-date">2024-11-20</span>
+                                    <span class="news-read">阅读更多 →</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="news-item reveal reveal-delay-5">
+                            <div class="news-image">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Professional%20trade%20show%20booth%20technology%20exhibition%20modern&image_size=landscape_4_3" alt="新闻图片" />
+                            </div>
+                            <div class="news-info">
+                                <span class="news-tag">展会信息</span>
+                                <h3>德烁科技即将参加深圳国际电池技术展</h3>
+                                <p>德烁科技将参加2025年深圳国际电池技术展，届时将展示针对新能源电池领域的最新流体解决方案...</p>
+                                <div class="news-meta">
+                                    <span class="news-date">2024-11-15</span>
+                                    <span class="news-read">阅读更多 →</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="news-pagination">
+                        <button class="pagination-btn">上一页</button>
+                        <span class="pagination-current">1</span>
+                        <span class="pagination-page">2</span>
+                        <span class="pagination-page">3</span>
+                        <span class="pagination-dots">...</span>
+                        <span class="pagination-page">10</span>
+                        <button class="pagination-btn">下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <span class="logo-fallback">德烁科技</span>
+                <span>DOSERTEC</span>
+            </div>
+            <div class="footer-info">
+                <p>北京德烁科技有限公司</p>
+                <p>电话：010-81500950 &nbsp;|&nbsp; 邮箱：info@de-shuo.com</p>
+                <p>地址：北京大兴经济技术开发区西环南路26号院嘉捷科技园23号楼</p>
+                <p class="footer-icp">京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        var scrollCheckCount = 0;
+        var scrollCheckMax = 10;
+        var scrollCheckInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            scrollCheckCount++;
+            if (scrollCheckCount >= scrollCheckMax) {
+                clearInterval(scrollCheckInterval);
+            }
+        }, 100);
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }, 200);
+        });
+    </script>
+</body>
+</html>

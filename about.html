@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于我们 - 德烁科技</title>
+    <meta name="description" content="北京德烁科技有限公司，专注于精密流体计量与涂胶解决方案" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        var checkCount = 0;
+        var checkInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            checkCount++;
+            if (checkCount > 20) {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="logo-glow-bg">
+                    <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback">德烁科技</span>
+                </div>
+            </a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" data-key="home">首页</a></li>
+                <li><a href="products.html" data-key="products">产品中心</a></li>
+                <li><a href="solutions.html" data-key="solutions">解决方案</a></li>
+                <li><a href="about.html" class="active" data-key="about">关于我们</a></li>
+                <li><a href="news.html" data-key="news">新闻中心</a></li>
+                <li><a href="contact.html" data-key="contact">联系我们</a></li>
+                <li class="navbar-lang">
+                    <button class="lang-btn lang-active" data-lang="cn">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>关于我们</h1>
+            <p>了解德烁科技的发展历程、核心优势和全球布局</p>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <div class="about-company reveal">
+                <div class="about-company-text">
+                    <h2>公司简介</h2>
+                    <p>
+                        北京德烁科技有限公司（DOSERTEC）总部位于北京经济技术开发区，是一家集研发、生产、销售和服务于一体的流体控制领域高新技术企业。
+                    </p>
+                    <p>
+                        公司专注于提供流体计量输送核心泵体、供料系统、调压系统、涂胶系统及各类流体精密计量涂覆解决方案产品。凭借多年的技术积累和创新能力，德烁科技已成为国内流体控制领域的领先企业之一。
+                    </p>
+                    <p>
+                        德烁科技拥有完善的研发体系和生产基地，产品广泛应用于新能源、汽车、电子、航空航天等多个领域。公司始终坚持"技术创新、品质为本"的理念，为客户提供稳定可靠的产品和专业的技术服务。
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">20+</span>
+                            <span class="about-stat-label">年行业经验</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">800+</span>
+                            <span class="about-stat-label">定制化实验</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">1500+</span>
+                            <span class="about-stat-label">年产能（套）</span>
+                        </div>
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">50+</span>
+                            <span class="about-stat-label">专利技术</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-company-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Modern%20technology%20company%20headquarters%20building%20professional%20office%20environment%20clean%20corporate&image_size=landscape_4_3" alt="公司总部" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title reveal">发展历程</h2>
+            <p class="section-subtitle reveal">从创立到发展，德烁科技始终致力于流体控制技术的创新与突破</p>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2003年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>公司创立</h3>
+                        <p>北京德烁科技有限公司正式成立，专注于精密流体计量设备的研发与制造</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2008年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>技术突破</h3>
+                        <p>成功研发微量螺杆计量泵，填补国内技术空白，精度达到国际领先水平</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2012年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>新能源布局</h3>
+                        <p>进入新能源领域，为锂电池、光伏等行业提供专业流体解决方案</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2015年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>海外拓展</h3>
+                        <p>成立德国代表处，开始国际化布局，产品远销欧洲、东南亚等地</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2018年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>智能制造</h3>
+                        <p>建成现代化生产基地，引入自动化生产线，年产能突破1000套</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2020年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>新加坡代表处</h3>
+                        <p>成立新加坡代表处，进一步拓展东南亚市场，提升区域服务能力</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-year-wrapper">
+                        <div class="timeline-year">2023年</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>技术领先</h3>
+                        <p>荣获多项专利技术，成为国内流体控制领域领军企业，服务客户超过500家</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title reveal">资质认证</h2>
+            <p class="section-subtitle reveal">德烁科技通过多项国际国内认证，品质值得信赖</p>
+            
+            <div class="certificates-grid">
+                <div class="certificate-card reveal">
+                    <div class="certificate-image">
+                        <img src="images/about/certificates/cert-01.jpg" alt="质量管理体系认证" onerror="this.src='https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Quality%20management%20certification%20ISO%209001%20document&image_size=portrait_4_3'; this.alt='质量管理体系认证'" />
+                    </div>
+                    <div class="certificate-name">质量管理体系认证</div>
+                </div>
+                <div class="certificate-card reveal">
+                    <div class="certificate-image">
+                        <img src="images/about/certificates/cert-02.jpg" alt="环境管理体系认证" onerror="this.src='https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Environmental%20management%20certification%20ISO%2014001%20document&image_size=portrait_4_3'; this.alt='环境管理体系认证'" />
+                    </div>
+                    <div class="certificate-name">环境管理体系认证</div>
+                </div>
+                <div class="certificate-card reveal">
+                    <div class="certificate-image">
+                        <img src="images/about/certificates/cert-03.jpg" alt="CE认证" onerror="this.src='https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=CE%20certification%20EU%20conformity%20document&image_size=portrait_4_3'; this.alt='CE认证'" />
+                    </div>
+                    <div class="certificate-name">CE认证</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-product">
+        <div class="container">
+            <h2 class="section-title reveal">全球布局</h2>
+            <p class="section-subtitle reveal">立足中国，服务全球，为世界各地客户提供专业解决方案</p>
+            
+            <div class="global-locations">
+                <div class="location-card reveal reveal-delay-1">
+                    <div class="location-icon">🇨🇳</div>
+                    <div class="location-content">
+                        <h3>北京总部</h3>
+                        <p>北京大兴经济技术开发区西环南路26号院嘉捷科技园23号楼</p>
+                        <p class="location-phone">电话：010-81500950</p>
+                        <p class="location-email">邮箱：info@de-shuo.com</p>
+                    </div>
+                </div>
+                
+                <div class="location-card reveal reveal-delay-2">
+                    <div class="location-icon">🇩🇪</div>
+                    <div class="location-content">
+                        <h3>德国代表处</h3>
+                        <p>Germany Representative Office</p>
+                        <p>专注于欧洲市场拓展与技术交流</p>
+                        <p class="location-phone">Tel: +49-xxxx-xxxx</p>
+                    </div>
+                </div>
+                
+                <div class="location-card reveal reveal-delay-3">
+                    <div class="location-icon">🇸🇬</div>
+                    <div class="location-content">
+                        <h3>新加坡代表处</h3>
+                        <p>Singapore Representative Office</p>
+                        <p>服务东南亚及亚太地区客户</p>
+                        <p class="location-phone">Tel: +65-xxxx-xxxx</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <span class="logo-fallback chinese-glow">德烁科技</span>
+                <span>DOSERTEC</span>
+            </div>
+            <div class="footer-info">
+                <p>北京德烁科技有限公司</p>
+                <p>电话：010-81500950 &nbsp;|&nbsp; 邮箱：info@de-shuo.com</p>
+                <p>地址：北京大兴经济技术开发区西环南路26号院嘉捷科技园23号楼</p>
+                <p class="footer-icp">京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        var scrollCheckCount = 0;
+        var scrollCheckMax = 10;
+        var scrollCheckInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            scrollCheckCount++;
+            if (scrollCheckCount >= scrollCheckMax) {
+                clearInterval(scrollCheckInterval);
+            }
+        }, 100);
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }, 200);
+        });
+    </script>
+</body>
+</html>

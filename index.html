@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>德烁科技 · 精密流体计量解决方案</title>
+    <meta name="description" content="德烁科技专注于精密涂胶、计量、混合产品及系统，为新能源、汽车、电子等行业提供整体解决方案。" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        var checkCount = 0;
+        var checkInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            checkCount++;
+            if (checkCount > 20) {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="logo-glow-bg">
+                    <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback">德烁科技</span>
+                </div>
+            </a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" class="active" data-key="home">首页</a></li>
+                <li><a href="products.html" data-key="products">产品中心</a></li>
+                <li><a href="solutions.html" data-key="solutions">解决方案</a></li>
+                <li><a href="about.html" data-key="about">关于我们</a></li>
+                <li><a href="news.html" data-key="news">新闻中心</a></li>
+                <li><a href="contact.html" data-key="contact">联系我们</a></li>
+                <li class="navbar-lang">
+                    <button class="lang-btn lang-active" data-lang="cn">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-glow-orange"></div>
+        <div class="hero-glow-blue"></div>
+        <div class="hero-particles">
+            <span class="particle particle-1"></span>
+            <span class="particle particle-2"></span>
+            <span class="particle particle-3"></span>
+            <span class="particle particle-4"></span>
+            <span class="particle particle-5"></span>
+            <span class="particle particle-6"></span>
+            <span class="particle particle-7"></span>
+            <span class="particle particle-8"></span>
+        </div>
+        <div class="hero-noise"></div>
+        <div class="hero-main-spotlight"></div>
+        <div class="hero-soft-glow"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span id="hero-title1">专注涂胶</span> · <br />
+                    <span class="highlight" id="hero-title2">聚焦流体</span>
+                </h1>
+                <p class="subtitle" id="hero-subtitle">
+                    德烁科技提供专业的精密涂胶、计量、混合产品和系统，为新能源、汽车、电子等行业提供整体解决方案及定制化服务。
+                </p>
+                <div class="hero-stats reveal">
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-number-years">20+</span>
+                        <span class="stat-label" id="stat-label-years">年行业经验</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-number-projects">800+</span>
+                        <span class="stat-label" id="stat-label-projects">定制化实验</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="stat-number-capacity">1500+</span>
+                        <span class="stat-label" id="stat-label-capacity">年产能（套）</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="products.html" class="btn btn-primary"><span id="btn-explore">探索产品</span> →</a>
+                    <a href="contact.html" class="btn btn-outline" id="btn-contact-hero">联系我们</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-carousel" id="hero-carousel">
+                    <div class="carousel-slide active">
+                        <img src="images/hero/machine-main.jpg.png" alt="德烁科技产品" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/hero/machine-02.jpg.png" alt="德烁科技产品" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/hero/machine-03.jpg.png" alt="德烁科技产品" />
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title reveal" id="advantages-title">为什么选择德烁</h2>
+            <p class="section-subtitle reveal" id="advantages-subtitle">掌握流体精密计量核心技术，为客户提供稳定可靠的产品与服务</p>
+
+            <div class="advantages-grid">
+                <div class="advantage-card reveal reveal-delay-1">
+                    <div class="icon">🎯</div>
+                    <h3>精度 ±1%</h3>
+                    <p>定量精度与重复精度高达 ±1%，满足严苛工艺要求</p>
+                </div>
+                <div class="advantage-card reveal reveal-delay-2">
+                    <div class="icon">🛡️</div>
+                    <h3>高耐磨材质</h3>
+                    <p>核心部件采用碳化钨、陶瓷等材质，寿命长、稳定性高</p>
+                </div>
+                <div class="advantage-card reveal reveal-delay-3">
+                    <div class="icon">⚙️</div>
+                    <h3>定制化方案</h3>
+                    <p>提供从供料、计量到混合分配的全套定制化解决方案</p>
+                </div>
+                <div class="advantage-card reveal reveal-delay-4">
+                    <div class="icon">🌐</div>
+                    <h3>7×24 服务</h3>
+                    <p>专业技术团队，全天候响应，保障产线稳定运行</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-product">
+        <div class="container">
+            <h2 class="section-title reveal" id="products-title">明星产品</h2>
+            <p class="section-subtitle reveal" id="products-subtitle">覆盖核心泵阀、小型系统到自动化整体解决方案</p>
+
+            <div class="products-scroll-wrapper">
+                <button class="products-scroll-btn products-scroll-left" id="scroll-left">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="products-scroll-btn products-scroll-right" id="scroll-right">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                <div class="products-scroll-container" id="products-scroll">
+                    <div class="products-scroll-track">
+                        <a href="product-detail.html?id=Mic-D50" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-1">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/1 螺杆泵系列/1 微量螺杆泵系列/Mic-D50-A.png" alt="微量螺杆计量泵" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">核心泵阀</span>
+                                    <h3>微量螺杆计量泵</h3>
+                                    <p>超微量、高精度、高粘度流体精密输送，回吸功能防止滴漏拉丝</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">核心泵阀</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=gear-pump" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-2">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/3 齿轮泵系列/双组份齿轮泵.png" alt="精密齿轮计量泵" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">核心泵阀</span>
+                                    <h3>精密齿轮计量泵</h3>
+                                    <p>中高粘度流体精密计量，耐压高，适用于苛刻工况</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">核心泵阀</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=dual-component" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-3">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/1 螺杆泵系列/2 大流量螺杆泵系列/PCP-2KD12-H-J.png" alt="双组份涂胶系统" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">自动化系统</span>
+                                    <h3>双组份涂胶系统</h3>
+                                    <p>双组份精密配比，均匀混合输送，适用于高要求场景</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">自动化系统</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=pressure-regulator" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-4">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/4 阀系列/调压阀/DS-PR50.png" alt="气动调压阀" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">阀类产品</span>
+                                    <h3>气动调压阀</h3>
+                                    <p>精确压力控制，稳定输出，响应速度快</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">阀类产品</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=dispensing-valve" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-5">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/4 阀系列/开关出胶阀/单液出胶阀/DS-HD20A.png" alt="单组份开关阀" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">阀类产品</span>
+                                    <h3>单组份开关阀</h3>
+                                    <p>高速开关响应，精准流体控制，防止拉丝滴漏</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">阀类产品</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=feeding-system" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-6">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/2 压盘泵供胶系列/柱塞压盘泵/BES-HP5-D.png" alt="5加仑压盘泵" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">系统产品</span>
+                                    <h3>5加仑压盘泵</h3>
+                                    <p>大容量供胶解决方案，稳定连续供胶，低粘度流体适用</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">系统产品</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=dispensing-valve" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-7">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/7 定量机系列/DS-40CC定量缸.png" alt="定量缸" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">阀类产品</span>
+                                    <h3>定量缸</h3>
+                                    <p>高精度定量输送，重复性好，适用于精密涂胶工艺</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">阀类产品</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="products.html?category=manual-gun" class="product-card-link">
+                            <div class="product-card reveal reveal-delay-8">
+                                <div class="product-image-wrapper">
+                                    <img src="产品图片/4 阀系列/开关出胶阀/手动胶枪/手动胶枪1.png" alt="手动胶枪" />
+                                </div>
+                                <div class="product-body">
+                                    <span class="product-tag">配件产品</span>
+                                    <h3>手动胶枪</h3>
+                                    <p>轻便耐用，精准控制出胶量，适用于手工操作场景</p>
+                                    <span class="product-link">了解更多 →</span>
+                                </div>
+                                <div class="product-overlay">
+                                    <span class="product-series">配件产品</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title reveal" id="solutions-title">行业解决方案</h2>
+            <p class="section-subtitle reveal" id="solutions-subtitle">为新能源、汽车、电子等行业提供专业的流体计量与涂胶解决方案</p>
+
+            <div class="solutions-grid">
+                <a href="solutions.html#new-energy" class="solution-card-link">
+                    <div class="solution-card reveal reveal-delay-1">
+                        <div class="solution-bg">🔋</div>
+                        <div class="solution-overlay">
+                            <h3>新能源</h3>
+                            <p>锂电池、光伏涂胶与灌封</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="solutions.html#automotive" class="solution-card-link">
+                    <div class="solution-card reveal reveal-delay-2">
+                        <div class="solution-bg">🚗</div>
+                        <div class="solution-overlay">
+                            <h3>汽车行业</h3>
+                            <p>PACK涂胶、零部件密封</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="solutions.html#electronics" class="solution-card-link">
+                    <div class="solution-card reveal reveal-delay-3">
+                        <div class="solution-bg">📱</div>
+                        <div class="solution-overlay">
+                            <h3>电子行业</h3>
+                            <p>精密点胶、灌封保护</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="solutions.html#other-industry" class="solution-card-link">
+                    <div class="solution-card reveal reveal-delay-4">
+                        <div class="solution-bg">🏭</div>
+                        <div class="solution-overlay">
+                            <h3>其他工业</h3>
+                            <p>家电、医疗、航空等</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-product">
+        <div class="container">
+            <h2 class="section-title reveal">产品系列</h2>
+            <p class="section-subtitle reveal">涵盖泵阀、供料系统及自动化解决方案，满足各行业流体控制需求</p>
+
+            <div class="products-grid">
+                <a href="products.html?category=screw-pump" class="product-card-link">
+                    <div class="product-card reveal reveal-delay-1">
+                        <div class="product-image-wrapper">
+                            <img src="产品图片/1 螺杆泵系列/1 微量螺杆泵系列/Mic-2KD40-P-B.png" alt="螺杆泵系列" />
+                        </div>
+                        <div class="product-body">
+                            <span class="product-tag">泵类产品</span>
+                            <h3>螺杆泵系列</h3>
+                            <p>微量到大量精密输送，高粘度流体适用，广泛应用于各行业</p>
+                            <span class="product-link">查看产品 →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="products.html?category=feeding-system" class="product-card-link">
+                    <div class="product-card reveal reveal-delay-2">
+                        <div class="product-image-wrapper">
+                            <img src="产品图片/2 压盘泵供胶系列/机柜.png" alt="压盘泵供胶系列" />
+                        </div>
+                        <div class="product-body">
+                            <span class="product-tag">系统产品</span>
+                            <h3>压盘泵供胶系列</h3>
+                            <p>压盘泵、抽料系统等供料解决方案，稳定连续供胶</p>
+                            <span class="product-link">查看产品 →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="products.html?category=gear-pump" class="product-card-link">
+                    <div class="product-card reveal reveal-delay-3">
+                        <div class="product-image-wrapper">
+                            <img src="产品图片/3 齿轮泵系列/双组份齿轮泵.png" alt="齿轮泵系列" />
+                        </div>
+                        <div class="product-body">
+                            <span class="product-tag">泵类产品</span>
+                            <h3>齿轮泵系列</h3>
+                            <p>中高粘度流体精密计量，耐压高，适用于苛刻工况</p>
+                            <span class="product-link">查看产品 →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="products.html?category=dispensing-valve" class="product-card-link">
+                    <div class="product-card reveal reveal-delay-4">
+                        <div class="product-image-wrapper">
+                            <img src="产品图片/4 阀系列/压电喷射阀/压电喷射阀.png" alt="阀系列" />
+                        </div>
+                        <div class="product-body">
+                            <span class="product-tag">阀类产品</span>
+                            <h3>阀系列</h3>
+                            <p>高速开关响应，精准流体控制，单液双液均有覆盖</p>
+                            <span class="product-link">查看产品 →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="products.html?category=dispensing-valve" class="product-card-link">
+                    <div class="product-card reveal reveal-delay-5">
+                        <div class="product-image-wrapper">
+                            <img src="产品图片/6 过滤器系列/过滤器.png" alt="过滤器系列" />
+                        </div>
+                        <div class="product-body">
+                            <span class="product-tag">过滤产品</span>
+                            <h3>过滤器系列</h3>
+                            <p>精密过滤，保护系统元件，延长设备使用寿命</p>
+                            <span class="product-link">查看产品 →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="products.html?category=pressure-tank" class="product-card-link">
+                    <div class="product-card reveal reveal-delay-6">
+                        <div class="product-image-wrapper">
+                            <img src="产品图片/8 压力罐系列/DS-PT10L-C 平底.png" alt="压力罐系列" />
+                        </div>
+                        <div class="product-body">
+                            <span class="product-tag">容器产品</span>
+                            <h3>压力罐系列</h3>
+                            <p>不锈钢储料容器，稳定压力供料，多规格可选</p>
+                            <span class="product-link">查看产品 →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section section-white">
+        <div class="container">
+            <div class="about-preview">
+                <div class="about-text reveal">
+                    <h2 class="section-title" style="text-align:left; margin-bottom:16px;" id="about-title">关于德烁</h2>
+                    <p id="about-text1">
+                        北京德烁科技有限公司（DOSERTEC）总部位于北京经济技术开发区，是一家集研发、生产、销售和服务于一体的流体控制领域高新技术企业。
+                    </p>
+                    <p id="about-text2">
+                        公司专注于提供流体计量输送核心泵体、供料系统、调压系统、涂胶系统及各类流体精密计量涂覆解决方案产品。
+                    </p>
+                    <a href="about.html" class="btn btn-primary" style="margin-top:8px;" id="btn-about">了解更多 →</a>
+                </div>
+                <div class="about-image reveal reveal-delay-2">
+                    公司形象图
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-column footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                        <span class="logo-fallback chinese-glow">德烁科技</span>
+                        <span>DOSERTEC</span>
+                    </div>
+                    <p class="footer-desc">专注流体精密计量，为新能源、汽车、电子等行业提供整体解决方案</p>
+                </div>
+                <div class="footer-column">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="news.html">新闻中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>📞 电话：010-81500950</li>
+                        <li>✉️ 邮箱：info@de-shuo.com</li>
+                        <li>📍 地址：北京大兴经济技术开发区西环南路26号院嘉捷科技园23号楼</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>关注我们</h4>
+                    <div class="footer-qr">
+                        <div class="qr-placeholder"></div>
+                        <span>微信扫码关注</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 北京德烁科技有限公司 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        var scrollCheckCount = 0;
+        var scrollCheckMax = 10;
+        var scrollCheckInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            scrollCheckCount++;
+            if (scrollCheckCount >= scrollCheckMax) {
+                clearInterval(scrollCheckInterval);
+            }
+        }, 100);
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }, 200);
+        });
+    </script>
+</body>
+</html>

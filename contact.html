@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>联系我们 - 德烁科技</title>
+    <meta name="description" content="联系德烁科技，获取专业流体计量解决方案" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        var checkCount = 0;
+        var checkInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            checkCount++;
+            if (checkCount > 20) {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="logo-glow-bg">
+                    <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback">德烁科技</span>
+                </div>
+            </a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" data-key="home">首页</a></li>
+                <li><a href="products.html" data-key="products">产品中心</a></li>
+                <li><a href="solutions.html" data-key="solutions">解决方案</a></li>
+                <li><a href="about.html" data-key="about">关于我们</a></li>
+                <li><a href="news.html" data-key="news">新闻中心</a></li>
+                <li><a href="contact.html" class="active" data-key="contact">联系我们</a></li>
+                <li class="navbar-lang">
+                    <button class="lang-btn lang-active" data-lang="cn">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>随时与我们取得联系，获取专业流体计量解决方案</p>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <div class="contact-full">
+                <div class="contact-left reveal">
+                    <h2>联系方式</h2>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📍</div>
+                        <div class="contact-info-body">
+                            <h3>公司地址</h3>
+                            <p>北京大兴经济技术开发区西环南路26号院<br>嘉捷科技园23号楼</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📞</div>
+                        <div class="contact-info-body">
+                            <h3>联系电话</h3>
+                            <p>010-81500950</p>
+                            <p>手机：138-xxxx-xxxx</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">✉️</div>
+                        <div class="contact-info-body">
+                            <h3>电子邮箱</h3>
+                            <p>info@de-shuo.com</p>
+                            <p>sales@de-shuo.com（销售咨询）</p>
+                            <p>tech@de-shuo.com（技术支持）</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">🕒</div>
+                        <div class="contact-info-body">
+                            <h3>工作时间</h3>
+                            <p>周一至周五：9:00 - 18:00</p>
+                            <p>周六：9:00 - 12:00（值班）</p>
+                            <p>节假日：休息</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-info-icon">📮</div>
+                        <div class="contact-info-body">
+                            <h3>邮政编码</h3>
+                            <p>100176</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-right reveal reveal-delay-2">
+                    <div class="contact-map-full">
+                        <div class="contact-map-wrapper">
+                            <iframe 
+                                src="https://ditu.amap.com/embed.html?position=116.54,39.76&name=嘉捷科技园23号楼&zoom=17" 
+                                allowfullscreen="">
+                            </iframe>
+                        </div>
+                        <p class="contact-map-tip">点击地图可拖动缩放</p>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>在线留言</h3>
+                        <form id="contactForm" action="#" method="post">
+                            <div class="form-group">
+                                <label for="name">姓名 *</label>
+                                <input type="text" id="name" name="name" required placeholder="请输入您的姓名" />
+                            </div>
+                            <div class="form-group">
+                                <label for="company">公司名称</label>
+                                <input type="text" id="company" name="company" placeholder="请输入您的公司名称" />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">联系电话 *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="请输入您的联系电话" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">电子邮箱</label>
+                                <input type="email" id="email" name="email" placeholder="请输入您的电子邮箱" />
+                            </div>
+                            <div class="form-group">
+                                <label for="interest">感兴趣的产品</label>
+                                <select id="interest" name="interest">
+                                    <option value="">请选择</option>
+                                    <option value="screw-pump">螺杆泵系列</option>
+                                    <option value="gear-pump">齿轮泵系列</option>
+                                    <option value="valve">阀系列</option>
+                                    <option value="feeding-system">供胶系统</option>
+                                    <option value="solution">解决方案</option>
+                                    <option value="other">其他</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">留言内容 *</label>
+                                <textarea id="message" name="message" required rows="5" placeholder="请描述您的需求或问题..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">提交留言</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <span class="logo-fallback">德烁科技</span>
+                <span>DOSERTEC</span>
+            </div>
+            <div class="footer-info">
+                <p>北京德烁科技有限公司</p>
+                <p>电话：010-81500950 &nbsp;|&nbsp; 邮箱：info@de-shuo.com</p>
+                <p>地址：北京大兴经济技术开发区西环南路26号院嘉捷科技园23号楼</p>
+                <p class="footer-icp">京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        var scrollCheckCount = 0;
+        var scrollCheckMax = 10;
+        var scrollCheckInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            scrollCheckCount++;
+            if (scrollCheckCount >= scrollCheckMax) {
+                clearInterval(scrollCheckInterval);
+            }
+        }, 100);
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }, 200);
+        });
+    </script>
+</body>
+</html>

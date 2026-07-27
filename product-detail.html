@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>产品详情 - 德烁科技</title>
+    <meta name="description" content="德烁科技产品详情" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="products-data.js"></script>
+    <style>
+        :root {
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F8FC;
+            --bg-card: #FFFFFF;
+            --primary: #1A73E8;
+            --primary-dark: #1557B0;
+            --secondary: #FF6B00;
+            --secondary-light: #FF8533;
+            --border-color: #E8ECF2;
+            --text-dark: #2D3748;
+            --text-gray: #5A6A8A;
+            --text-light: #8AA0C8;
+        }
+
+        body {
+            background: var(--bg-white);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .breadcrumb-bar {
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+        }
+
+        .breadcrumb-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .breadcrumb a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb span {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .product-detail-page {
+            padding: 40px 0;
+        }
+
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-title-section {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-title-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .product-title-section .product-model {
+            font-size: 15px;
+            color: var(--text-light);
+            margin: 8px 0 0 0;
+            letter-spacing: 0.5px;
+        }
+
+        .product-showcase-row {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .product-image-col {
+            width: 45%;
+            flex-shrink: 0;
+        }
+
+        .product-info-col {
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            min-height: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .product-image-wrapper:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-image-wrapper img {
+            max-width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+        }
+
+        .no-image {
+            font-size: 14px;
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px;
+        }
+
+        .product-intro {
+            margin-bottom: 0;
+        }
+
+        .product-intro h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 0 12px 0;
+        }
+
+        .product-intro p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .product-advantages-short {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: var(--bg-light);
+            border-radius: 16px;
+        }
+
+        .product-advantages-short h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 30px 0;
+            padding-left: 16px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .advantages-grid-new {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .advantage-card {
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .advantage-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 2px 15px rgba(26, 115, 232, 0.1);
+        }
+
+        .advantage-card h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+            line-height: 1.4;
+        }
+
+        .advantage-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .download-section {
+            margin-bottom: 50px;
+        }
+
+        .download-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 24px 0;
+            padding-left: 16px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .download-card {
+            padding: 24px 30px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .download-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 0 4px 0;
+        }
+
+        .download-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--bg-white);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-section {
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .contact-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 24px 0;
+            padding-left: 16px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .contact-info-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info-item .icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .contact-info-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 0 8px 0;
+        }
+
+        .contact-info-item p {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .contact-action {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 40px;
+            background: var(--primary);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+        }
+
+        .qr-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .qr-modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .qr-modal {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.3s ease;
+            position: relative;
+            width: 300px;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .qr-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--bg-light);
+            border-radius: 50%;
+            font-size: 18px;
+            color: var(--text-gray);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .qr-modal-close:hover {
+            background: var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .qr-code-placeholder {
+            width: 200px;
+            height: 200px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .qr-code-placeholder span {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .qr-modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 0 8px 0;
+        }
+
+        .qr-modal-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .product-detail-container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-showcase-row {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .product-image-col,
+            .product-info-col {
+                width: 100%;
+            }
+
+            .advantages-grid-new {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-card {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .product-title-section h1 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-detail-page {
+                padding: 24px 0;
+            }
+
+            .product-detail-container {
+                padding: 0 16px;
+            }
+
+            .product-showcase-row {
+                gap: 30px;
+                margin-bottom: 36px;
+            }
+
+            .product-image-wrapper {
+                padding: 24px;
+                min-height: 300px;
+            }
+
+            .product-image-wrapper img {
+                max-height: 260px;
+            }
+
+            .product-title-section h1 {
+                font-size: 22px;
+            }
+
+            .product-intro p {
+                font-size: 14px;
+            }
+
+            .product-advantages-short {
+                padding: 20px;
+            }
+
+            .product-advantages-short h3 {
+                font-size: 16px;
+            }
+
+            .advantage-card {
+                padding: 16px;
+            }
+
+            .advantage-card h4 {
+                font-size: 15px;
+            }
+
+            .advantage-card p {
+                font-size: 13px;
+            }
+
+            .download-section h2,
+            .contact-section h2 {
+                font-size: 18px;
+            }
+
+            .download-card {
+                padding: 20px;
+            }
+
+            .contact-section {
+                padding: 20px;
+            }
+
+            .contact-info-item {
+                padding: 16px;
+            }
+
+            .contact-btn {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+
+            .qr-modal {
+                width: 260px;
+                padding: 24px;
+            }
+
+            .qr-code-placeholder {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname);
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        var checkCount = 0;
+        var checkInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            checkCount++;
+            if (checkCount > 20) {
+                clearInterval(checkInterval);
+            }
+        }, 50);
+    </script>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <div class="logo-glow-bg">
+                    <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                    <span class="logo-fallback">德烁科技</span>
+                </div>
+            </a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" data-key="home">首页</a></li>
+                <li><a href="products.html" class="active" data-key="products">产品中心</a></li>
+                <li><a href="solutions.html" data-key="solutions">解决方案</a></li>
+                <li><a href="about.html" data-key="about">关于我们</a></li>
+                <li><a href="news.html" data-key="news">新闻中心</a></li>
+                <li><a href="contact.html" data-key="contact">联系我们</a></li>
+                <li class="navbar-lang">
+                    <button class="lang-btn lang-active" data-lang="cn">中文</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="breadcrumb-bar">
+        <div class="container">
+            <div class="breadcrumb">
+                所在位置：<a href="index.html">首页</a> > <a href="products.html">产品中心</a> > <span id="breadcrumb-product">产品详情</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-detail-page">
+        <div class="product-detail-container">
+            <div class="product-title-section">
+                <h1 id="product-name">产品名称</h1>
+                <p class="product-model" id="product-model">型号：</p>
+            </div>
+
+            <div class="product-showcase-row">
+                <div class="product-image-col">
+                    <div class="product-image-wrapper" id="product-image-wrapper">
+                        <img id="product-img" src="images/products/sample.png" alt="产品图片" />
+                    </div>
+                </div>
+
+                <div class="product-info-col">
+                    <div class="product-intro">
+                        <h3>产品介绍</h3>
+                        <p id="product-description">产品描述内容</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-advantages-short">
+                <h3>产品优势</h3>
+                <div class="advantages-grid-new" id="product-advantages-grid"></div>
+            </div>
+
+            <div class="download-section">
+                <h2>资料下载</h2>
+                <div class="download-card">
+                    <div class="download-info">
+                        <h4>产品选型手册.pdf</h4>
+                        <p>文件大小：2.5 MB | 更新时间：2026年7月</p>
+                    </div>
+                    <button class="download-btn" onclick="openQrModal()">
+                        <span>📥</span><span>获取手册</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <h2>联系我们</h2>
+                <div class="contact-info-grid">
+                    <div class="contact-info-item">
+                        <div class="icon">📞</div>
+                        <h4>产品咨询</h4>
+                        <p>010-81500950</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon">🔧</div>
+                        <h4>备件咨询</h4>
+                        <p>010-81500950</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon">✉️</div>
+                        <h4>电子邮箱</h4>
+                        <p>info@de-shuo.com</p>
+                    </div>
+                </div>
+                <div class="contact-action">
+                    <a href="contact.html" class="contact-btn">
+                        <span>📞</span><span>立即咨询</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="qr-modal-overlay" id="qrModal">
+        <div class="qr-modal">
+            <button class="qr-modal-close" onclick="closeQrModal()">×</button>
+            <div class="qr-code-placeholder">
+                <span>二维码待添加</span>
+            </div>
+            <h3 class="qr-modal-title">扫码获取产品手册</h3>
+            <p class="qr-modal-desc">使用微信扫码即可下载完整产品手册</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-column footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="images/logo.jpg.png" alt="德烁科技" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                        <span class="logo-fallback chinese-glow">德烁科技</span>
+                        <span>DOSERTEC</span>
+                    </div>
+                    <p class="footer-desc">专注流体精密计量，为新能源、汽车、电子等行业提供整体解决方案</p>
+                </div>
+                <div class="footer-column">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="news.html">新闻中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>📞 电话：010-81500950</li>
+                        <li>✉️ 邮箱：info@de-shuo.com</li>
+                        <li>📍 地址：北京大兴经济技术开发区西环南路26号院嘉捷科技园23号楼</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>关注我们</h4>
+                    <div class="footer-qr">
+                        <div class="qr-placeholder"></div>
+                        <span>微信扫码关注</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 北京德烁科技有限公司 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+            loadProductDetail();
+        });
+
+        function loadProductDetail() {
+            const productId = new URLSearchParams(window.location.search).get('id');
+            const data = productData[productId] || productData['default'];
+            const wrapper = document.getElementById('product-image-wrapper');
+            const productImg = document.getElementById('product-img');
+            
+            const els = {
+                name: document.getElementById('product-name'),
+                model: document.getElementById('product-model'),
+                desc: document.getElementById('product-description'),
+                breadcrumb: document.getElementById('breadcrumb-product'),
+                advantagesGrid: document.getElementById('product-advantages-grid')
+            };
+            
+            if (els.name) els.name.textContent = data.name;
+            if (els.model) els.model.textContent = '型号：' + data.model;
+            if (els.desc) els.desc.textContent = data.description;
+            if (els.breadcrumb) els.breadcrumb.textContent = data.name;
+            
+            if (data.image) {
+                if (productImg) {
+                    productImg.src = data.image;
+                    productImg.style.display = 'block';
+                }
+            } else if (productImg) {
+                productImg.style.display = 'none';
+                wrapper.innerHTML = '<div class="no-image">暂无产品图片</div>';
+            }
+
+            if (els.advantagesGrid && data.features && data.features.length > 0) {
+                els.advantagesGrid.innerHTML = data.features.map(feature => {
+                    const description = generateFeatureDescription(feature);
+                    return `
+                        <div class="advantage-card">
+                            <h4>${feature}</h4>
+                            <p>${description}</p>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function generateFeatureDescription(feature) {
+            const descriptions = {
+                '精密调压控制': '采用高精度调压机构，实现出口压力的精密调节与稳定输出，满足各类精密工艺需求',
+                '稳定输出压力': '采用先进的压力补偿设计，确保在各种工况下输出压力恒定，保障工艺质量的一致性',
+                '结构紧凑': '优化内部布局设计，大幅节省安装空间，适用于各类自动化设备的集成与配套',
+                '可靠性高': '选用优质材料和精密制造工艺，确保产品长期稳定运行，降低维护成本',
+                '高压柱塞输送': '高压柱塞式输送设计，稳定可靠工作，满足高压工况需求',
+                '稳定可靠工作': '经过严格测试验证，确保长期稳定可靠运行',
+                '精密加工工艺': '采用精密加工工艺制造，保证产品精度和品质',
+                '使用寿命长': '优质材料配合精密工艺，产品使用寿命长，降低更换成本',
+                '真空抽料': '高效真空抽料系统，快速稳定供料',
+                '高效供料': '高效供料解决方案，提升生产效率',
+                '操作便捷': '人性化设计，操作便捷，降低使用门槛',
+                '高粘度供胶': '专为高粘度物料设计，稳定连续输送',
+                '稳定连续输送': '稳定连续的物料输送能力，保障生产连续性',
+                '齿轮驱动': '齿轮驱动方式，传动效率高，运行平稳',
+                '计量精确': '高精度计量设计，确保定量准确',
+                '柱塞驱动': '柱塞驱动方式，适用于高压工况',
+                '高压适用': '适用于高压工况，性能稳定可靠',
+                '热熔胶专用': '专为热熔胶应用设计，具备温度控制功能',
+                '温度控制': '精确温度控制，确保物料性能稳定',
+                '双立柱设计': '双立柱结构设计，受力均匀，稳定性好',
+                '螺杆驱动': '螺杆驱动方式，适合高粘度物料输送',
+                '双组份配比': '支持双组份精确配比，满足特殊工艺需求',
+                '三立柱设计': '三立柱结构设计，承载能力更强',
+                '高速开关响应': '高速开关响应速度，精准流体控制',
+                '精准流体控制': '精准的流体控制能力，满足精密工艺要求',
+                '无针嘴设计': '无针嘴设计，适用于特殊应用场景',
+                '大流量': '大流量设计，满足高产能需求',
+                '轻便手持设计': '轻便手持设计，操作灵活便捷',
+                '精准点胶作业': '精准点胶作业能力，确保点胶质量',
+                '气控操作': '气控操作方式，响应迅速可靠',
+                '电控操作': '电控操作方式，便于自动化控制',
+                '加长设计': '加长设计，适用于特殊空间作业',
+                '双液配比控制': '双液精确配比控制，满足双组份工艺需求',
+                '带管设计': '带管设计，便于管路连接',
+                '高精度定量计量': '高精度定量计量，确保出胶量准确',
+                '稳定出胶控制': '稳定的出胶控制能力，保障工艺一致性',
+                '双程设计': '双程结构设计，提升工作效率',
+                '自动化控制': '支持自动化控制，便于集成到生产线',
+                '不锈钢材质': '不锈钢材质，耐腐蚀，卫生环保',
+                '平底设计': '平底结构设计，便于清洗和维护',
+                '密封性好': '优良的密封性能，防止泄漏',
+                '双组份精密计量': '双组份精密计量，配比准确',
+                '回吸功能': '具备回吸功能，防止拉丝和滴胶',
+                '高耐磨材质': '高耐磨材质，延长使用寿命'
+            };
+            return descriptions[feature] || '该产品具备优良的性能特点，满足各类应用需求';
+        }
+
+        function openQrModal() {
+            document.getElementById('qrModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQrModal() {
+            document.getElementById('qrModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('qrModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQrModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQrModal();
+            }
+        });
+    </script>
+    <script>
+        var scrollCheckCount = 0;
+        var scrollCheckMax = 10;
+        var scrollCheckInterval = setInterval(function() {
+            if (window.scrollY > 10) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            scrollCheckCount++;
+            if (scrollCheckCount >= scrollCheckMax) {
+                clearInterval(scrollCheckInterval);
+            }
+        }, 100);
+
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }, 200);
+        });
+    </script>
+</body>
+</html>

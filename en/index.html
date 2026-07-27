@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOSERTEC · Precision Fluid Metering Solutions</title>
+    <meta name="description" content="DOSERTEC specializes in precision dispensing, metering and mixing systems for new energy, automotive, electronics and more." />
+    <style>
+        /* ===== 全局重置 & 基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1A3A6B;
+            --primary-light: #2B5A9A;
+            --primary-dark: #0F2645;
+            --secondary: #E8842A;
+            --secondary-light: #F5A623;
+            --white: #FFFFFF;
+            --gray-100: #F7F9FC;
+            --gray-200: #E8ECF2;
+            --gray-300: #C5CDD8;
+            --gray-600: #6B7A8A;
+            --gray-800: #2D3748;
+            --font-en: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+            --shadow: 0 4px 20px rgba(26, 58, 107, 0.10);
+            --shadow-hover: 0 12px 40px rgba(26, 58, 107, 0.18);
+            --radius: 12px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-en);
+            color: var(--gray-800);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 导航栏 ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 44px;
+            width: auto;
+        }
+
+        .navbar-brand .brand-fallback {
+            display: none;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .navbar-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--gray-800);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .navbar-menu a:hover {
+            color: var(--primary);
+        }
+
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-menu a.active {
+            color: var(--primary);
+        }
+
+        .navbar-menu a.active::after {
+            width: 100%;
+        }
+
+        .navbar-lang {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .navbar-lang a {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .navbar-lang a.lang-active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .navbar-lang a:not(.lang-active) {
+            color: var(--gray-600);
+        }
+
+        .navbar-lang a:not(.lang-active):hover {
+            color: var(--primary);
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .navbar-toggle span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 992px) {
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .navbar-menu {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 24px 32px;
+                gap: 16px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+                border-radius: 0 0 var(--radius) var(--radius);
+                opacity: 0;
+                transform: translateY(-12px);
+                pointer-events: none;
+                transition: var(--transition);
+                border-top: 1px solid var(--gray-200);
+            }
+
+            .navbar-menu.open {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: all;
+            }
+
+            .navbar-lang {
+                margin-left: 0;
+                margin-top: 8px;
+            }
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 80px 0;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #0A1628 0%, #06101F 50%, #050D1A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 20%, 
+                rgba(255, 255, 255, 0.03) 45%, 
+                rgba(255, 255, 255, 0.06) 50%, 
+                rgba(255, 255, 255, 0.03) 55%, 
+                transparent 80%);
+            transform: rotate(-10deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at center, rgba(26, 115, 232, 0.06) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--secondary);
+            opacity: 0.35;
+            border-radius: 4px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 20px;
+            max-width: 480px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .hero-content .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .hero-content .hero-stats .stat-item {
+            text-align: left;
+        }
+
+        .hero-content .hero-stats .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            display: block;
+        }
+
+        .hero-content .hero-stats .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2px;
+        }
+
+        .hero-content .hero-actions {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(232, 132, 42, 0.35);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.30);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.10);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-visual .hero-image-placeholder {
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 4/3;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.20);
+            font-size: 14px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-visual .float-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: floatDot 6s infinite ease-in-out;
+        }
+
+        .hero-visual .float-dot:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            top: 10%;
+            right: 5%;
+            animation-delay: 2s;
+            opacity: 0.25;
+        }
+
+        .hero-visual .float-dot:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            bottom: 15%;
+            left: 5%;
+            animation-delay: 4s;
+            opacity: 0.35;
+        }
+
+        @keyframes floatDot {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                padding: 120px 0 60px;
+                min-height: auto;
+            }
+
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(32px, 6vw, 44px);
+            }
+
+            .hero-content .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .hero-visual .hero-image-placeholder {
+                max-width: 100%;
+                aspect-ratio: 16/10;
+            }
+        }
+
+        /* ===== 通用标题 ===== */
+        .section-title {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 15px;
+            max-width: 640px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        .section-light {
+            background: var(--gray-100);
+        }
+
+        .section-white {
+            background: var(--white);
+        }
+
+        /* ===== 核心优势 ===== */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .advantage-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--secondary);
+        }
+
+        .advantage-card .icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: rgba(26, 58, 107, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .advantage-card:hover .icon {
+            background: rgba(232, 132, 42, 0.12);
+        }
+
+        .advantage-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .advantage-card p {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 明星产品 ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-200);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
+        }
+
+        .product-card .product-image {
+            height: 220px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-300);
+            font-size: 14px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.02);
+        }
+
+        .product-card .product-body {
+            padding: 24px;
+        }
+
+        .product-card .product-body h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .product-card .product-body .product-tag {
+            display: inline-block;
+            background: rgba(232, 132, 42, 0.10);
+            color: var(--secondary);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-card .product-body p {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .product-card .product-body .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .product-card .product-body .product-link:hover {
+            color: var(--secondary);
+            gap: 12px;
+        }
+
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 解决方案 ===== */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .solution-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--gray-200);
+        }
+
+        .solution-card .solution-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+        }
+
+        .solution-card:hover .solution-bg {
+            transform: scale(1.05);
+        }
+
+        .solution-card .solution-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.70));
+            color: var(--white);
+        }
+
+        .solution-card .solution-overlay h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .solution-card .solution-overlay p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 992px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 客户案例 ===== */
+        .clients-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 48px;
+            margin-top: 16px;
+        }
+
+        .client-item {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--gray-600);
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+        }
+
+        .client-item:hover {
+            color: var(--primary);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* ===== 关于我们摘要 ===== */
+        .about-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-preview .about-text p {
+            color: var(--gray-600);
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .about-preview .about-text .btn {
+            margin-top: 8px;
+        }
+
+        .about-preview .about-image {
+            background: var(--gray-200);
+            border-radius: var(--radius);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-300);
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .about-preview {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .about-preview .about-image {
+                order: -1;
+            }
+        }
+
+        /* ===== 联系我们 & 地图 ===== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info-item {
+            margin-bottom: 24px;
+        }
+
+        .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info-item h3 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .contact-info-item p {
+            color: var(--gray-600);
+        }
+
+        .contact-map-wrapper {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 320px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .contact-map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .contact-map-tip {
+            font-size: 12px;
+            color: var(--gray-300);
+            margin-top: 8px;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contact-map-wrapper {
+                height: 260px;
+            }
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            background: #0A1628;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0066CC, transparent);
+        }
+
+        .footer-top {
+            padding: 56px 0;
+        }
+
+        .footer-top .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-column ul li {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: #0066CC;
+        }
+
+        .footer-brand-col {
+            grid-column: span 1;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 8px rgba(0, 102, 204, 0.5));
+        }
+
+        .footer-brand span {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.4), 0 0 80px rgba(255,255,255,0.2);
+        }
+
+        .footer-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+            max-width: 200px;
+        }
+
+        .footer-qr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qr-placeholder {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-qr span {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom {
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-bottom .container {
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        @media (max-width: 992px) {
+            .footer-top .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-top .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-desc {
+                max-width: 100%;
+            }
+            
+            .footer-brand-col {
+                text-align: center;
+            }
+        }
+
+        /* ===== 滚动动画 ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+    </style>
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+    </script>
+</head>
+<body>
+
+    <!-- ===== 导航栏 ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/en/" class="navbar-brand">
+                <!-- Logo 图片，加载失败时显示备用文字 -->
+                <img src="../images/logo.png" alt="DOSERTEC" onerror="this.style.display='none'; document.getElementById('brandFallbackEN').style.display='block';" />
+                <span class="brand-fallback" id="brandFallbackEN">DOSERTEC</span>
+            </a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="/en/" class="active">Home</a></li>
+                <li><a href="/en/products.html">Products</a></li>
+                <li><a href="/en/solutions.html">Solutions</a></li>
+                <li><a href="/en/about.html">About</a></li>
+                <li><a href="/en/news.html">News</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
+                <li class="navbar-lang">
+                    <a href="/">中文</a>
+                    <a href="/en/" class="lang-active">EN</a>
+                </li>
+            </ul>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Dosing &amp; <br />
+                    <span class="highlight">Dispensing Technology</span>
+                </h1>
+                <p class="subtitle">
+                    DOSERTEC provides professional precision dispensing, metering,
+                    and mixing systems — offering complete solutions and customized
+                    services for new energy, automotive, electronics and more.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">800+</span>
+                        <span class="stat-label">Custom Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1500+</span>
+                        <span class="stat-label">Annual Capacity</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="/en/products.html" class="btn btn-primary">Explore Products →</a>
+                    <!-- 将锚点改为指向 contact.html，避免滚动到 #contact -->
+                    <a href="/en/contact.html" class="btn btn-outline-light">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-placeholder">
+                    Banner Image<br />(Replace with product/factory photo)
+                </div>
+                <div class="float-dot"></div>
+                <div class="float-dot"></div>
+                <div class="float-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 核心优势 ===== -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title reveal">Why DOSERTEC</h2>
+            <p class="section-subtitle reveal">Core technology in precision fluid metering — reliable products &amp; services</p>
+
+            <div class="advantages-grid">
+                <div class="advantage-card reveal reveal-delay-1">
+                    <div class="icon">🎯</div>
+                    <h3>±1% Accuracy</h3>
+                    <p>Metering and repeat accuracy up to ±1%, meeting the most demanding processes</p>
+                </div>
+                <div class="advantage-card reveal reveal-delay-2">
+                    <div class="icon">🛡️</div>
+                    <h3>High Wear Resistance</h3>
+                    <p>Core components in tungsten carbide &amp; ceramic for long life and stability</p>
+                </div>
+                <div class="advantage-card reveal reveal-delay-3">
+                    <div class="icon">⚙️</div>
+                    <h3>Customized Solutions</h3>
+                    <p>Complete systems from feeding, metering to mixing &amp; dispensing</p>
+                </div>
+                <div class="advantage-card reveal reveal-delay-4">
+                    <div class="icon">🌐</div>
+                    <h3>24/7 Support</h3>
+                    <p>Professional technical team ready to respond — keeping your lines running</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 明星产品 ===== -->
+    <section class="section section-light">
+        <div class="container">
+            <h2 class="section-title reveal">Featured Products</h2>
+            <p class="section-subtitle reveal">From core pumps &amp; valves to complete automated systems</p>
+
+            <div class="products-grid">
+                <div class="product-card reveal reveal-delay-1">
+                    <div class="product-image">Micro Screw Metering Pump</div>
+                    <div class="product-body">
+                        <span class="product-tag">Core Pump &amp; Valve</span>
+                        <h3>Micro Screw Metering Pump</h3>
+                        <p>Ultra-precise, high-viscosity fluid conveying with anti-drip back-suction function</p>
+                        <a href="/en/products.html" class="product-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card reveal reveal-delay-2">
+                    <div class="product-image">Gear Metering Pump</div>
+                    <div class="product-body">
+                        <span class="product-tag">Core Pump &amp; Valve</span>
+                        <h3>Precision Gear Metering Pump</h3>
+                        <p>High-pressure precision metering for medium to high viscosity fluids</p>
+                        <a href="/en/products.html" class="product-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card reveal reveal-delay-3">
+                    <div class="product-image">2K Dispensing System</div>
+                    <div class="product-body">
+                        <span class="product-tag">Automated System</span>
+                        <h3>2K Dispensing System</h3>
+                        <p>±1% ratio accuracy — ideal for EV battery, automotive and other demanding applications</p>
+                        <a href="/en/products.html" class="product-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 解决方案 ===== -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title reveal">Industry Solutions</h2>
+            <p class="section-subtitle reveal">Professional fluid metering &amp; dispensing solutions for key industries</p>
+
+            <div class="solutions-grid">
+                <div class="solution-card reveal reveal-delay-1">
+                    <div class="solution-bg">🔋</div>
+                    <div class="solution-overlay">
+                        <h3>New Energy</h3>
+                        <p>Battery &amp; PV dispensing &amp; potting</p>
+                    </div>
+                </div>
+                <div class="solution-card reveal reveal-delay-2">
+                    <div class="solution-bg">🚗</div>
+                    <div class="solution-overlay">
+                        <h3>Automotive</h3>
+                        <p>PACK coating &amp; component sealing</p>
+                    </div>
+                </div>
+                <div class="solution-card reveal reveal-delay-3">
+                    <div class="solution-bg">📱</div>
+                    <div class="solution-overlay">
+                        <h3>Electronics</h3>
+                        <p>Precision dispensing &amp; encapsulation</p>
+                    </div>
+                </div>
+                <div class="solution-card reveal reveal-delay-4">
+                    <div class="solution-bg">🏭</div>
+                    <div class="solution-overlay">
+                        <h3>Other Industries</h3>
+                        <p>Appliances, medical, aviation &amp; more</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ===== 关于我们摘要 ===== -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="about-preview">
+                <div class="about-text reveal">
+                    <h2 class="section-title" style="text-align:left; margin-bottom:16px;">About DOSERTEC</h2>
+                    <p>
+                        Beijing Dosertec Technology Co., Ltd. (DOSERTEC) is headquartered
+                        in the Beijing Economic-Technological Development Area — a
+                        high-tech enterprise integrating R&amp;D, production, sales and service.
+                    </p>
+                    <p>
+                        We specialize in precision metering pumps, feeding systems,
+                        pressure regulators, dispensing systems and complete fluid
+                        metering &amp; coating solutions.
+                    </p>
+                    <a href="/en/about.html" class="btn btn-primary" style="margin-top:8px;">Learn More →</a>
+                </div>
+                <div class="about-image reveal reveal-delay-2">
+                    Company Image
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 联系我们 & 地图 ===== -->
+    <section class="section section-light" id="contact">
+        <div class="container">
+            <h2 class="section-title reveal">Contact Us</h2>
+            <p class="section-subtitle reveal">Get in touch with us for professional fluid metering solutions</p>
+
+            <div class="contact-wrapper">
+                <!-- 左侧：联系信息 -->
+                <div class="contact-info reveal">
+                    <div class="contact-info-item">
+                        <h3>📍 Address</h3>
+                        <p>Building 23, Jiajie Technology Park<br>No. 26 West Ring South Road<br>Beijing Economic-Technological Development Area, China</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h3>📞 Phone</h3>
+                        <p>+86-10-81500950</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h3>✉️ Email</h3>
+                        <p>info@de-shuo.com</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h3>🕒 Working Hours</h3>
+                        <p>Monday – Friday, 9:00 – 18:00 (Beijing Time)</p>
+                    </div>
+                </div>
+
+                <!-- 右侧：地图 -->
+                <div class="contact-map reveal reveal-delay-2">
+                    <div class="contact-map-wrapper">
+                        <iframe 
+                            src="https://ditu.amap.com/embed.html?position=116.54,39.76&name=Jiajie Technology Park Building 23&zoom=17" 
+                            allowfullscreen="">
+                        </iframe>
+                    </div>
+                    <p class="contact-map-tip">Click and drag to pan · Scroll to zoom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 页脚 ===== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-column footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="../images/logo.jpg.png" alt="DOSERTEC" />
+                        <span>DOSERTEC</span>
+                    </div>
+                    <p class="footer-desc">Precision fluid metering solutions for new energy, automotive, electronics industries</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/en/index.html">Home</a></li>
+                        <li><a href="/en/products.html">Products</a></li>
+                        <li><a href="/en/solutions.html">Solutions</a></li>
+                        <li><a href="/en/about.html">About</a></li>
+                        <li><a href="/en/news.html">News</a></li>
+                        <li><a href="/en/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📞 Tel: +86-10-81500950</li>
+                        <li>✉️ Email: info@de-shuo.com</li>
+                        <li>📍 Address: Building 23, Jiajie Technology Park, No. 26 West Ring South Road, Beijing</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Follow Us</h4>
+                    <div class="footer-qr">
+                        <div class="qr-placeholder"></div>
+                        <span>WeChat QR Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Beijing Dosertec Technology Co., Ltd. | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        // 1. 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. 移动端菜单切换
+        const toggle = document.getElementById('navbarToggle');
+        const menu = document.getElementById('navbarMenu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('open');
+            });
+        });
+
+        // 3. 滚动动画
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        console.log('DOSERTEC website loaded ✅');
+    </script>
+
+</body>
+</html>
