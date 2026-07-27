@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: xcxqxw/dosertec-website
+  branch: main
+  site_domain: xcxqxw.github.io
+  base_url: https://xcxqxw.github.io/dosertec-website
+  auth_type: oauth
+  app_id: YOUR_GITHUB_CLIENT_ID
+  redirect_uri: https://xcxqxw.github.io/dosertec-website/admin/
+
+local_backend:
+  repo_path: ../
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+display_url: https://xcxqxw.github.io/dosertec-website
+
+locale: zh-CN
+
+collections:
+  - name: products
+    label: 产品管理
+    folder: content/products
+    format: json
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    fields:
+      - { name: model, label: 产品型号, widget: string, required: true }
+      - { name: name, label: 产品名称, widget: string, required: true }
+      - { name: category, label: 产品分类, widget: string, required: true }
+      - { name: description, label: 产品描述, widget: text, required: true }
+      - { name: image, label: 产品图片, widget: image, required: true }
+      - name: features
+        label: 产品优势
+        widget: list
+        fields:
+          - { name: title, label: 优势标题, widget: string }
+          - { name: description, label: 优势描述, widget: text }
+      - name: specs
+        label: 技术参数
+        widget: list
+        fields:
+          - { name: name, label: 参数名称, widget: string }
+          - { name: value, label: 参数值, widget: string }
+      - name: applications
+        label: 应用场景
+        widget: list
+        fields:
+          - { name: title, label: 场景名称, widget: string }
+          - { name: desc, label: 场景描述, widget: text }
+
+  - name: news
+    label: 新闻管理
+    folder: content/news
+    format: json
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: 新闻标题, widget: string, required: true }
+      - { name: date, label: 发布日期, widget: datetime, required: true }
+      - { name: category, label: 新闻分类, widget: select, options: [公司新闻, 行业动态, 技术资讯, 产品发布], default: 公司新闻 }
+      - { name: summary, label: 新闻摘要, widget: text, required: true }
+      - { name: content, label: 新闻内容, widget: markdown, required: true }
+      - { name: image, label: 新闻图片, widget: image }
