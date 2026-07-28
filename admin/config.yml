@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: xcxqxw/dosertec-website
+  branch: main
   base_url: https://shy-frog-3f6b.3144731342.workers.dev
 
 media_folder: images/uploads
