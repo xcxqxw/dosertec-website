@@ -5,7 +5,6 @@ backend:
   base_url: https://dosertec-website.3144731342.workers.dev
   auth_endpoint: oauth
   client_id: 0v231iNehEz0p38BD18a
-  # client_secret 已被移除，改为使用 local_backend 开发模式
 
 # 使用本地后端开发模式，避免暴露 secret
 local_backend: true
