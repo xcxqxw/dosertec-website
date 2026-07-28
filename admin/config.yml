@@ -2,67 +2,39 @@ backend:
   name: github
   repo: xcxqxw/dosertec-website
   branch: main
-  site_domain: xcxqxw.github.io
-  base_url: https://xcxqxw.github.io/dosertec-website
-  auth_type: oauth
-  app_id: Ov23liNehEzOp38BD18a
-  app_secret: 15cee7ed3ca89aadf2fc0859a977e1d4b59bf858
-  redirect_uri: https://xcxqxw.github.io/dosertec-website/admin/
+  base_url: https://dosertec-website.3144731342.workers.dev
+  auth_endpoint: oauth
+  client_id: 0v231iNehEz0p38BD18a
+  # client_secret 已被移除，改为使用 local_backend 开发模式
 
-local_backend:
-  repo_path: ../
+# 使用本地后端开发模式，避免暴露 secret
+local_backend: true
 
 media_folder: images/uploads
 public_folder: /images/uploads
 
-display_url: https://xcxqxw.github.io/dosertec-website
-
-locale: zh-CN
-
 collections:
   - name: products
-    label: 产品管理
-    folder: content/products
-    format: json
+    label: 产品
+    folder: _data/products
     create: true
-    delete: true
-    slug: '{{slug}}'
     fields:
-      - { name: model, label: 产品型号, widget: string, required: true }
-      - { name: name, label: 产品名称, widget: string, required: true }
-      - { name: category, label: 产品分类, widget: string, required: true }
-      - { name: description, label: 产品描述, widget: text, required: true }
-      - { name: image, label: 产品图片, widget: image, required: true }
-      - name: features
-        label: 产品优势
-        widget: list
-        fields:
-          - { name: title, label: 优势标题, widget: string }
-          - { name: description, label: 优势描述, widget: text }
-      - name: specs
-        label: 技术参数
-        widget: list
-        fields:
-          - { name: name, label: 参数名称, widget: string }
-          - { name: value, label: 参数值, widget: string }
-      - name: applications
-        label: 应用场景
-        widget: list
-        fields:
-          - { name: title, label: 场景名称, widget: string }
-          - { name: desc, label: 场景描述, widget: text }
+      - { name: id, label: 产品ID }
+      - { name: name, label: 产品名称 }
+      - { name: model, label: 型号 }
+      - { name: description, label: 描述 }
+      - { name: features, label: 产品优势, widget: list }
+      - { name: specs, label: 技术参数, widget: list }
+      - { name: image, label: 图片路径 }
+      - { name: category, label: 分类 }
 
   - name: news
-    label: 新闻管理
-    folder: content/news
-    format: json
+    label: 新闻
+    folder: _data/news
     create: true
-    delete: true
-    slug: '{{slug}}'
     fields:
-      - { name: title, label: 新闻标题, widget: string, required: true }
-      - { name: date, label: 发布日期, widget: datetime, required: true }
-      - { name: category, label: 新闻分类, widget: select, options: [公司新闻, 行业动态, 技术资讯, 产品发布], default: 公司新闻 }
-      - { name: summary, label: 新闻摘要, widget: text, required: true }
-      - { name: content, label: 新闻内容, widget: markdown, required: true }
-      - { name: image, label: 新闻图片, widget: image }
+      - { name: title, label: 标题 }
+      - { name: date, label: 日期, widget: datetime }
+      - { name: summary, label: 摘要 }
+      - { name: content, label: 正文, widget: markdown }
+      - { name: image, label: 配图路径, required: false }
