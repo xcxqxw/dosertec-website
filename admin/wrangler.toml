@@ -1,0 +1,7 @@
+name = "shy-frog-3f6b"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+GITHUB_HOSTNAME = "github.com"
+ALLOWED_DOMAINS = "xcxqxw.github.io,localhost"
